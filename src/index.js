@@ -58,7 +58,7 @@ function fastbootExpressMiddleware(distPath, options) {
     }
 
     function failure(error) {
-      if (error.name !== "UnrecognizedURLError") {
+      if (error.name !== "UnrecognizedURLError" && error.name !== 'TransitionAborted') {
         res.status(500);
       }
       next(error);
